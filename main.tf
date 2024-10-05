@@ -1,6 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
 module "vpcs" {
   source = "./modules/vpc"
   env    = "prod"
@@ -19,6 +16,7 @@ module "EC2" {
 
   sg = module.vpcs.sg_id
 }
+
 module "aws_autoscaling_group" {
   source = "./modules/auto-scaling"
 
